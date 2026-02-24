@@ -3,7 +3,7 @@ title: "Activities"
 description: "Conference, seminars and talks"
 ---
 
-## Upcoming
+## 2026
 - Algebraic Topology: Methods, Computation, and Science (ATMCS 12) - Leipzig, Germany, Jan 26-30, 2026
 
 
