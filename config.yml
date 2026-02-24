@@ -74,8 +74,8 @@ params:
             #  url: tags/
             #- name: Archive
             #  url: archive/
-            - name: Reading group
-              url: https://angeloelsaliby.github.io/AppliedToricGeometry-ReadingGroup/
+            #- name: Reading group
+            #  url: https://angeloelsaliby.github.io/AppliedToricGeometry-ReadingGroup/
 
     socialIcons:
         #- name: CV
