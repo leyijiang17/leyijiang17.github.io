@@ -2,6 +2,8 @@
 title: "Activities"
 description: "Conference, seminars and talks"
 ---
+## Upcoming
+- Discrete Laplacians 2026 - Dresden, Germany, Jun 22-25, 2026
 
 ## 2026
 - Algebraic Topology: Methods, Computation, and Science (ATMCS 12) - Leipzig, Germany, Jan 26-30, 2026
