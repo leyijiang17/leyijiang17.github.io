@@ -63,6 +63,12 @@
       </span>
       {{- end }}
     </h2>
+    {{- with .Params.status }}
+    <span class="paper-status paper-status-{{ . | lower | urlize }}">{{ . }}</span>
+    {{- end }}
+    {{- with .Params.journal }}
+    <span class="paper-journal">{{ . }}</span>
+    {{- end }}
   </header>
   {{- if (ne (.Param "hideSummary") true) }}
   <div class="entry-content">

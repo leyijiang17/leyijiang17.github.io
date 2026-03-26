@@ -1,13 +1,14 @@
 
 ---
-title: "Master Dissertation: 3d N=4 Quiver Gauge Theory and Mirror Symmetry" 
+title: "3d N=4 Quiver Gauge Theory and Mirror Symmetry" 
 date: 2025-04-29
 tags: ["Quantum Field Theory","Quiver Gauge Theory","3d Mirror Symmetry","Supersymmetric"]
 author: ["Leyi Jiang"]
 description: ""
 summary: "This dissertation conjectured and proved an infinite branched cyclic quivers family of 3d mirror pairs." 
+status: "Dissertation"
 cover:
-    image: "paper2.png"
+    #    image: "paper2.png"
     alt: "branched cyclic quivers"
     relative: true
 #editPost:
