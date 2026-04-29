@@ -21,6 +21,9 @@ menu:
         - name: Activities
           url: activities/
           weight: 2
+        - name: Choreography & Dance
+          url: dance/
+          weight: 3
         #- name: Data
         #  url: data/
         #  weight: 4 
@@ -55,7 +58,8 @@ params:
     profileMode:
           enabled: true
           title: Leyi Jiang
-          subtitle: "I am a PhD candidate at the Centre of Mathematics and Artificial Intelligence of the Max Planck Institute of Molecular Cell Biology and Genetics in Dresden, Germany, within the Algebraic Systems Biology group of Heather A. Harrington. My research focuses on developing and applying Topological Data Analysis to uncover the hidden structures within spatial sub-cellular biological data."
+          subtitle: |
+            I am a PhD candidate at the Centre of Mathematics and Artificial Intelligence of the [Max Planck Institute of Molecular Cell Biology and Genetics](https://www.mpi-cbg.de/) in Dresden, Germany, within the [Algebraic Systems Biology group](https://www.mpi-cbg.de/research/researchgroups/currentgroups/heather-harrington/research) of Heather A. Harrington. My research focuses on developing and applying Topological Data Analysis to uncover the hidden structures within spatial sub-cellular biological data.
           imageUrl: "picture.jpg"
           imageWidth: 160
           imageHeight: 160
@@ -64,6 +68,8 @@ params:
               url: papers/
             - name: Activities
               url: activities/
+            #- name: Choreography & Dance
+            #  url: dance/
             #- name: Data
             #  url: data/
             #- name: Books
@@ -84,16 +90,16 @@ params:
           url: mailto:ljiang@mpi-cbg.de
         - name: Location
           url: location/
-        #- name: ORCID
-        #  url: https://orcid.org/0009-0002-0756-5760
-        #- name: Google Scholar
-        #  url: https://scholar.google.com/citations?user=fy8jT8AAAAAJ
+        - name: ORCID
+          url: https://orcid.org/0009-0002-0756-5760
+        - name: Google Scholar
+          url: https://scholar.google.com/citations?user=fy8jT8AAAAAJ
         #- name: GitHub
         #  url: https://github.com/leyijiang17
-        #- name: LinkedIn
-        #  url: https://uk.linkedin.com/in/leyi-jiang-943125227
+        - name: LinkedIn
+          url: https://uk.linkedin.com/in/leyi-jiang-943125227
         #- name: Substack
-        #  url: https://pmichaillat.substack.com
+        #  url: https://substack.com/@thetangentspace
         #- name: YouTube
         #  url: https://www.youtube.com/@pmichaillat
         #- name: Bluesky

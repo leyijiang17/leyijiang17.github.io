@@ -1,0 +1,415 @@
+.dance-page,
+.dance-piece {
+    width: min(920px, 100%);
+    margin: 0 auto 96px;
+    box-sizing: border-box;
+}
+
+.dance-hero {
+    padding: 56px 0 40px;
+    text-align: center;
+}
+
+.dance-hero-image-wrap {
+    width: min(300px, 100%);
+    margin: 0 auto 32px;
+}
+
+.dance-hero-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.dance-quote {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+}
+
+.dance-quote p,
+.dance-piece-title,
+.dance-section-heading h1 {
+    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+}
+
+.dance-quote p {
+    margin: 0;
+    font-size: clamp(24px, 3.8vw, 42px);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: var(--primary);
+}
+
+.dance-quote footer {
+    margin-top: 14px;
+    color: var(--secondary);
+    font-size: 14px;
+}
+
+.dance-quote-divider {
+    width: 64px;
+    height: 1px;
+    margin: 28px auto 0;
+    background: var(--primary);
+}
+
+.dance-intro {
+    max-width: 620px;
+    margin: 0 auto 88px;
+    text-align: center;
+    color: var(--secondary);
+}
+
+.dance-section {
+    padding-top: 20px;
+}
+
+.dance-section-secondary {
+    margin-top: 84px;
+}
+
+.dance-section-heading,
+.dance-piece-header {
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+.dance-section-divider {
+    width: 72px;
+    height: 1px;
+    margin: 0 auto 30px;
+    background: var(--primary);
+}
+
+.dance-kicker {
+    margin: 0 0 10px;
+    color: var(--secondary);
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+}
+
+.dance-section-heading h1,
+.dance-piece-title {
+    margin: 0;
+    font-size: clamp(34px, 4vw, 52px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+}
+
+.dance-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.dance-outro {
+    max-width: 620px;
+    margin: 88px auto 0;
+    color: var(--secondary);
+}
+
+.dance-outro-text {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.dance-outro-text p {
+    margin: 0 0 1.25rem;
+}
+
+.dance-outro-text p:last-child {
+    margin-bottom: 0;
+}
+
+.dance-card {
+    display: block;
+}
+
+.dance-card-media {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 0;
+    background: #d8d4cf;
+}
+
+.dance-card-media img,
+.dance-gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+}
+
+.dance-card-media img {
+    transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.dance-card-caption {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: end;
+    padding: 18px;
+    background: linear-gradient(180deg, rgba(21, 18, 16, 0.04) 15%, rgba(21, 18, 16, 0.72) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dance-card-caption span {
+    color: #f8f3ee;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+}
+
+.dance-card:hover .dance-card-caption,
+.dance-card:focus-visible .dance-card-caption {
+    opacity: 1;
+}
+
+.dance-card:hover .dance-card-media img,
+.dance-card:focus-visible .dance-card-media img {
+    transform: scale(1.04);
+    filter: grayscale(0);
+}
+
+.dance-card-fallback {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ddd4cb 0%, #c7beb5 100%);
+}
+
+.dance-piece-header {
+    margin-top: 24px;
+    position: relative;
+}
+
+.dance-exit-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 22px;
+    min-height: 40px;
+    padding: 0 16px;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.dance-exit-link:hover {
+    background: var(--theme);
+}
+
+.dance-close-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 28px;
+    line-height: 1;
+}
+
+.dance-close-link:hover {
+    opacity: 0.7;
+}
+
+.dance-piece-description {
+    max-width: 920px;
+    margin: 14px auto 0;
+    color: var(--secondary);
+    font-size: 17px;
+    white-space: pre-line;
+}
+
+.dance-gallery {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(420px, 58vw);
+    gap: 24px;
+    overflow-x: auto;
+    padding: 4px 0 12px;
+    margin-bottom: 52px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+}
+
+.dance-gallery-item {
+    margin: 0;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 0;
+    scroll-snap-align: center;
+    background: #d8d4cf;
+}
+
+.dance-gallery-item img {
+    filter: none;
+}
+
+.dance-gallery-item-portrait img {
+    width: auto;
+    max-width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.dance-piece-meta-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    max-width: 720px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.dance-piece-copy {
+    min-width: 0;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.dance-piece-meta {
+    display: grid;
+    justify-items: center;
+    gap: 14px;
+    padding-top: 4px;
+}
+
+.dance-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+}
+
+.dance-meta-row-stack {
+    display: block;
+    width: min(520px, 100%);
+}
+
+.dance-meta-row-stack ul {
+    margin: 0;
+    padding-left: 18px;
+    text-align: left;
+}
+
+.dance-meta-divider {
+    width: 72px;
+    height: 1px;
+    background: var(--primary);
+    margin-top: 6px;
+}
+
+.dance-meta-collaborators ul li + li {
+    margin-top: 8px;
+}
+
+.dance-piece-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 56px;
+}
+
+.dance-meta-label {
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 11px;
+}
+
+.dance-video-panel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dance-video-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 16px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.dance-video-link:hover {
+    background: var(--theme);
+}
+
+@media (max-width: 900px) {
+    .dance-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dance-gallery {
+        grid-auto-columns: minmax(320px, 82vw);
+    }
+}
+
+@media (max-width: 640px) {
+    .dance-page,
+    .dance-piece {
+        width: 100%;
+    }
+
+    .dance-hero {
+        padding-top: 28px;
+    }
+
+    .dance-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .dance-quote p {
+        font-size: 34px;
+    }
+
+    .dance-gallery {
+        grid-auto-columns: minmax(260px, 86vw);
+        gap: 16px;
+    }
+
+    .dance-piece-copy {
+        text-align: left;
+    }
+
+    .dance-close-link {
+        top: -4px;
+        right: 0;
+    }
+
+    .dance-piece-meta,
+    .dance-meta-row,
+    .dance-video-panel {
+        justify-content: flex-start;
+    }
+
+    .dance-piece-meta {
+        justify-items: start;
+    }
+
+    .dance-meta-divider {
+        margin-top: 0;
+    }
+}

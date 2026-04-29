@@ -1,0 +1,67 @@
+{{ define "main" }}
+
+<section class="dance-page">
+  {{ $allPages := .RegularPages.ByDate.Reverse }}
+  {{ $choreographyPages := where $allPages "Params.dance_section" "!=" "performance" }}
+  {{ $performedPages := where $allPages "Params.dance_section" "in" (slice "performance" "both") }}
+  <header class="dance-hero">
+    {{ $hero := "" }}
+    {{ with .Params.hero_image }}
+      {{ if hasPrefix . "/" }}
+        {{ $hero = . | relURL }}
+      {{ else }}
+        {{ with $.Resources.GetMatch . }}
+          {{ $hero = .RelPermalink }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ with $hero }}
+      <div class="dance-hero-image-wrap">
+        <img class="dance-hero-image" src="{{ . }}" alt="{{ $.Title }} hero image">
+      </div>
+    {{ end }}
+    {{ with .Params.quote }}
+      <blockquote class="dance-quote">
+        <p>{{ . }}</p>
+        {{ with $.Params.quote_attribution }}
+          <footer>{{ . }}</footer>
+        {{ end }}
+      </blockquote>
+    {{ end }}
+    <div class="dance-quote-divider" aria-hidden="true"></div>
+  </header>
+
+  {{ with .Content }}
+    <div class="dance-intro post-content">
+      {{ . }}
+    </div>
+  {{ end }}
+
+  <section class="dance-section">
+    <div class="dance-section-heading">
+      <div class="dance-section-divider" aria-hidden="true"></div>
+      <h1>Choreographies</h1>
+    </div>
+
+    {{ partial "dance_card_grid.html" (dict "pages" $choreographyPages) }}
+  </section>
+
+  <section class="dance-section dance-section-secondary" id="performances">
+    <div class="dance-section-heading">
+      <div class="dance-section-divider" aria-hidden="true"></div>
+      <h1>Performances</h1>
+    </div>
+
+    {{ if gt (len $performedPages) 0 }}
+      {{ partial "dance_card_grid.html" (dict "pages" $performedPages) }}
+    {{ end }}
+  </section>
+
+  {{ with .Params.closing_text }}
+    <div class="dance-outro post-content">
+      <div class="dance-outro-text">{{ . | markdownify }}</div>
+    </div>
+  {{ end }}
+</section>
+
+{{ end }}

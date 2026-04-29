@@ -1,0 +1,116 @@
+{{ define "main" }}
+
+{{ $isPerformance := eq .Params.dance_section "performance" }}
+{{ $backHref := "/dance/" | relURL }}
+{{ $backLabel := "Back to choreographies" }}
+{{ $kicker := "Choreography" }}
+{{ if $isPerformance }}
+  {{ $backHref = printf "%s#performances" ("/dance/" | relURL) }}
+  {{ $backLabel = "Back to performances" }}
+  {{ $kicker = "Performance" }}
+{{ end }}
+
+<article class="dance-piece">
+  <header class="dance-piece-header">
+    {{ partial "breadcrumbs.html" . }}
+    <a class="dance-close-link" href="{{ $backHref }}" aria-label="{{ $backLabel }}">×</a>
+    <p class="dance-kicker">{{ $kicker }}</p>
+    <h1 class="dance-piece-title">{{ .Title }}</h1>
+    {{ with .Description }}
+      <p class="dance-piece-description">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  {{ $gallery := .Params.gallery }}
+  {{ with $gallery }}
+    <section class="dance-gallery" aria-label="Gallery for {{ $.Title }}">
+      {{ range . }}
+        {{ $image := "" }}
+        {{ if hasPrefix . "/" }}
+          {{ $image = . | relURL }}
+        {{ else }}
+          {{ with $.Resources.GetMatch . }}
+            {{ $image = .RelPermalink }}
+          {{ end }}
+        {{ end }}
+        <figure class="dance-gallery-item">
+          {{ if $image }}
+            <img src="{{ $image }}" alt="{{ $.Title }} gallery image" loading="lazy">
+          {{ end }}
+        </figure>
+      {{ end }}
+    </section>
+  {{ end }}
+
+  <section class="dance-piece-meta-grid">
+    <div class="dance-piece-copy post-content">
+      {{ .Content }}
+    </div>
+
+    <aside class="dance-piece-meta">
+      {{ with .Params.year }}
+        <div class="dance-meta-row">
+          <span class="dance-meta-label">Year</span>
+          <span>{{ . }}</span>
+        </div>
+      {{ end }}
+      {{ with .Params.duration }}
+        <div class="dance-meta-row">
+          <span class="dance-meta-label">Duration</span>
+          <span>{{ . }}</span>
+        </div>
+      {{ end }}
+      {{ with .Params.premiere }}
+        <div class="dance-meta-row">
+          <span class="dance-meta-label">Premiere</span>
+          <span>{{ . }}</span>
+        </div>
+      {{ end }}
+      {{ with .Params.collaborators }}
+        <div class="dance-meta-divider" aria-hidden="true"></div>
+        <div class="dance-meta-row dance-meta-row-stack dance-meta-collaborators">
+          <ul>
+            {{ range . }}
+              <li>{{ . }}</li>
+            {{ end }}
+          </ul>
+        </div>
+      {{ end }}
+      {{ with .Params.video_url }}
+        <div class="dance-video-panel">
+          <span class="dance-meta-label">Full video</span>
+          <a class="dance-video-link" href="{{ . }}" target="_blank" rel="noreferrer">Watch video</a>
+        </div>
+      {{ end }}
+    </aside>
+  </section>
+
+  <footer class="dance-piece-footer">
+    <a class="dance-exit-link" href="{{ $backHref }}">{{ $backLabel }}</a>
+  </footer>
+</article>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const galleryImages = document.querySelectorAll(".dance-gallery-item img");
+
+    const markPortrait = function (image) {
+      if (image.naturalHeight > image.naturalWidth) {
+        image.parentElement.classList.add("dance-gallery-item-portrait");
+      }
+    };
+
+    galleryImages.forEach(function (image) {
+      if (image.complete) {
+        markPortrait(image);
+        return;
+      }
+
+      image.addEventListener("load", function () {
+        markPortrait(image);
+      }, { once: true });
+    });
+  });
+</script>
+
+{{ end }}

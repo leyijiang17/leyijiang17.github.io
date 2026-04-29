@@ -1,0 +1,38 @@
+<div class="dance-grid">
+  {{ range .pages }}
+    {{ $page := . }}
+    {{ $cover := "" }}
+    {{ with .Params.cover.image }}
+      {{ if hasPrefix . "/" }}
+        {{ $cover = . | relURL }}
+      {{ else }}
+        {{ with $page.Resources.GetMatch . }}
+          {{ $cover = .RelPermalink }}
+        {{ end }}
+      {{ end }}
+    {{ else }}
+      {{ with .Params.gallery }}
+        {{ $first := index . 0 }}
+        {{ if hasPrefix $first "/" }}
+          {{ $cover = $first | relURL }}
+        {{ else }}
+          {{ with $page.Resources.GetMatch $first }}
+            {{ $cover = .RelPermalink }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    <a class="dance-card" href="{{ .RelPermalink }}" aria-label="Open {{ .Title }}">
+      <figure class="dance-card-media">
+        {{ if $cover }}
+          <img src="{{ $cover }}" alt="{{ .Title }} cover image" loading="lazy">
+        {{ else }}
+          <div class="dance-card-fallback" aria-hidden="true"></div>
+        {{ end }}
+        <figcaption class="dance-card-caption">
+          <span>{{ .Title }}</span>
+        </figcaption>
+      </figure>
+    </a>
+  {{ end }}
+</div>
