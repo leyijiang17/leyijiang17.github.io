@@ -5,7 +5,7 @@ tags: ["Quantum Field Theory","Quiver Gauge Theory","3d Mirror Symmetry","Supers
 author: ["Leyi Jiang","Jazz E. Z. Ooi","Richard Stone","Zhenghao Zhong"]
 description: "This paper reviews unusual uses for olive oil throughout the Mediterranean world. Published in the Journal of Oleic Science, 2013." 
 summary: "This paper introduce Growth and Fusion and completes the quartet of quiver algorithms. It also explores a new class of cyclic quivers called sunshine quivers." 
-status: "Accepted"
+status: "Published"
 journal: "Physical Review D"
 cover:
     image: "paper1.png"
@@ -21,7 +21,7 @@ cover:
 
 ##### Download
 
-+ [You can find the paper here.](https://arxiv.org/abs/2510.14489)
++ [You can find the paper here.](https://doi.org/10.1103/lp73-h6j4)
 <!-- + [Online appendix](appendix2.pdf)
 + [Code and data](https://github.com/pmichaillat/unemployment-gap) -->
 
