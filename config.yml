@@ -60,7 +60,7 @@ params:
           title: Leyi Jiang
           subtitle: |
             I am a PhD candidate at the Centre of Mathematics and Artificial Intelligence of the [Max Planck Institute of Molecular Cell Biology and Genetics](https://www.mpi-cbg.de/) in Dresden, Germany, within the [Algebraic Systems Biology group](https://www.mpi-cbg.de/research/researchgroups/currentgroups/heather-harrington/research) of Heather A. Harrington. My research focuses on developing and applying Topological Data Analysis to uncover the hidden structures within spatial sub-cellular biological data.
-
+            <br><br>
             I am also a [dancer and choreographer](dance/).
           imageUrl: "picture.jpg"
           imageWidth: 160
