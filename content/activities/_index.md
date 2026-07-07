@@ -9,7 +9,7 @@ description: "Conference, seminars and talks"
 ## 2026
 - Young Topologists Meeting 2026 - Copenhagen, Denmark, Jun 29 - Jul 3, 2026
 - Discrete Laplacians 2026 - Dresden, Germany, Jun 22-25, 2026
-- 2026 DIPP PreDoc Retreat - Liblice, Czech Republic, Jun 1-3, 2026 [poster](diversity_poster.pdf)
+- 2026 DIPP PreDoc Retreat - Liblice, Czech Republic, Jun 1-3, 2026 [[Poster]](diversity_poster.pdf)
 - Algebraic Topology: Methods, Computation, and Science (ATMCS 12) - Leipzig, Germany, Jan 26-30, 2026
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Bootstrapping Mirror Pairs: The Beginning of the End" 
+title: "Bootstrapping mirror pairs: The beginning of the end" 
 date: 2025-10-16
 tags: ["Quantum Field Theory","Quiver Gauge Theory","3d Mirror Symmetry","Supersymmetric"]
 author: ["Leyi Jiang","Jazz E. Z. Ooi","Richard Stone","Zhenghao Zhong"]
