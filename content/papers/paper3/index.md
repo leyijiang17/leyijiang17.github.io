@@ -8,7 +8,7 @@ summary: "This paper introduce scDIV, a similarity-sensitive framework for trans
 status: "Preprint"
 journal: ""
 cover:
-    image: "paper3method.png"
+    image: "paper3.png"
     alt: "scDIV"
     relative: true
 #editPost:
