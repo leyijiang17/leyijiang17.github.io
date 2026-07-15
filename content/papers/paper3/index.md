@@ -8,7 +8,7 @@ summary: "This paper introduce scDIV, a similarity-sensitive framework for trans
 status: "Preprint"
 journal: ""
 cover:
-    image: "paper3.pdf"
+    image: "paper3.png"
     alt: "scDIV"
     relative: true
 #editPost:
@@ -35,7 +35,7 @@ Downstream analysis in single-cell and spatial transcriptomics is highly depende
 
 ##### scDIV
 
-![](paper3.pdf)
+![](paper3.png)
 <!-- 
 ---
 ##### Related material
