@@ -33,7 +33,7 @@ Downstream analysis in single-cell and spatial transcriptomics is highly depende
 
 ---
 
-##### scDIV
+##### scDIV method overview
 
 ![](paper3.png)
 <!-- 
