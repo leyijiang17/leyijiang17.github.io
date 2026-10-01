@@ -4,6 +4,7 @@ description: "Conference, seminars and talks"
 ---
 ## Upcoming
 - Singular Learning Theory Days 2026 - Dresden, Germany, Oct 26-27, 2026
+- Cell Symposia: Single cell biology in the era of AI 2026 - Munich, Germany, Dec 2-4, 2026
 
 
 ## 2026
