@@ -40,7 +40,7 @@ Three-dimensional supersymmetric gauge theories with eight supercharges possess 
 ---
 ##### Related material
 
-+ [Presentation slides](presentation1.pdf)
++ [Presentation slides](Presentation1.pdf)
 + [QuiverZLive](https://github.com/jazzooi21/QuiverZLive) is an interactive tool for calculation and manipulation of quivers in 3d N=4 supersymmetric quantum field theories.
 
 <!-- 

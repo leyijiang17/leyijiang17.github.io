@@ -1,44 +1,42 @@
 <section class="fractal-game" data-fractal-game>
   <style>
     .fractal-game {
-      --bg: #05070d;
-      --panel: rgba(8, 14, 25, 0.86);
-      --panel-border: rgba(125, 249, 255, 0.16);
-      --text: #d9e7f1;
-      --muted: #8fa3b8;
-      --cyan: #7df9ff;
-      --orange: #ffb347;
-      --green: #44ff88;
-      --amber: #ffaa00;
-      --red: #ff6666;
+      --panel: #FFFFFF;
+      --entry: #F5F5F5;
+      --surface-hover: #EEEEEE;
+      --tertiary: #D6D6D6;
+      --primary: #1E1E1E;
+      --secondary: #6C6C6C;
+      --accent-ink: #55658C;
+      --radius: 8px;
+      --semibold: 600;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --dur-fade: 300ms;
+      --s-2: 2px;
+      --s-4: 4px;
+      --s-8: 8px;
+      --s-12: 12px;
+      --s-16: 16px;
+      --s-24: 24px;
+      --s-32: 32px;
+      --s-40: 40px;
+      --fs-xs: 0.75rem;
+      --lh-xs: 1rem;
+      --fs-sm: 0.875rem;
+      --lh-sm: 1.25rem;
+      --fs-base: 1rem;
+      --lh-base: 1.5rem;
+      --fs-5xl: 3rem;
+      --lh-5xl: 1;
       position: relative;
       overflow: hidden;
       width: 100vw;
       max-width: 100vw;
-      margin: 2.25rem 0 2.25rem calc(50% - 50vw);
-      padding: 1.5rem;
-      border: 1px solid var(--panel-border);
-      border-radius: 28px;
-      background:
-        radial-gradient(circle at top left, rgba(125, 249, 255, 0.12), transparent 30%),
-        radial-gradient(circle at 85% 15%, rgba(255, 179, 71, 0.12), transparent 28%),
-        linear-gradient(180deg, #05070d 0%, #0a1020 100%);
-      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
-      color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      animation: fractal-game-fade-in 700ms ease-out both;
-    }
-
-    .fractal-game::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 36px 36px;
-      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 85%);
-      pointer-events: none;
+      margin: var(--s-40) 0 var(--s-40) calc(50% - 50vw);
+      padding: var(--s-24);
+      background: var(--entry);
+      color: var(--primary);
+      font-family: inherit;
     }
 
     .fractal-game * {
@@ -47,131 +45,101 @@
 
     .fractal-game__shell {
       position: relative;
-      z-index: 1;
       display: grid;
-      gap: 1.1rem;
+      gap: var(--s-16);
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .fractal-game__unsupported {
       display: none;
-      position: relative;
-      z-index: 2;
       margin: 0 auto;
       max-width: 780px;
       min-height: 360px;
-      padding: 2rem;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background: rgba(8, 14, 25, 0.88);
+      padding: var(--s-32);
+      border-radius: 16px;
+      background: var(--panel);
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: #d9e7f1;
-      font-size: 1.05rem;
-      line-height: 1.6;
+      color: var(--primary);
+      font-size: var(--fs-base);
+      line-height: var(--lh-base);
     }
 
     .fractal-game__hero {
       display: grid;
-      gap: 0.6rem;
+      gap: var(--s-8);
       align-items: start;
     }
 
     .fractal-game__eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
       width: fit-content;
-      padding: 0.35rem 0.7rem;
-      border: 1px solid rgba(125, 249, 255, 0.18);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.03);
-      color: var(--cyan);
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      color: var(--secondary);
+      font-size: var(--fs-xs);
+      line-height: var(--lh-xs);
+      font-weight: 500;
+      letter-spacing: 0.01em;
     }
 
-    .fractal-game__title {
+    .fractal-game .fractal-game__title {
       margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2rem, 3.4vw, 3.2rem);
-      line-height: 1.02;
-      color: #f5fbff;
+      font-size: var(--fs-5xl);
+      line-height: var(--lh-5xl);
+      font-weight: var(--semibold);
+      letter-spacing: -0.03em;
+      color: var(--primary);
       text-wrap: balance;
     }
 
-    .fractal-game__subtitle {
-      max-width: 64ch;
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.6;
-    }
-
-    .fractal-game__references {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem 0.85rem;
-      color: var(--muted);
-      font-size: 0.86rem;
-    }
-
-    .fractal-game__references strong {
-      color: var(--cyan);
-      font-weight: 600;
-    }
-
     .fractal-game__status-card,
-    .fractal-game__panel,
-    .fractal-game__controls {
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    .fractal-game__panel {
       background: var(--panel);
-      backdrop-filter: blur(12px);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
     }
 
     .fractal-game__status-card {
       display: grid;
-      gap: 0.9rem;
-      padding: 1rem 1rem 1.1rem;
-      border-radius: 22px;
+      gap: var(--s-16);
+      padding: var(--s-16);
+      border-radius: 16px;
     }
 
     .fractal-game__meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem 1rem;
+      gap: var(--s-12) var(--s-16);
       align-items: center;
       justify-content: space-between;
     }
 
     .fractal-game__level {
       display: grid;
-      gap: 0.15rem;
+      gap: var(--s-2);
     }
 
     .fractal-game__level-label {
-      color: var(--cyan);
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      color: var(--secondary);
+      font-size: var(--fs-xs);
+      line-height: var(--lh-xs);
+      letter-spacing: 0.01em;
     }
 
     .fractal-game__level-name {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #f7fbff;
+      font-size: var(--fs-base);
+      line-height: var(--lh-base);
+      font-weight: var(--semibold);
+      color: var(--primary);
     }
 
     .fractal-game__level-difficulty {
-      color: var(--muted);
-      font-size: 0.88rem;
+      color: var(--secondary);
+      font-size: var(--fs-sm);
+      line-height: var(--lh-sm);
     }
 
     .fractal-game__score-stack {
       display: grid;
-      gap: 0.35rem;
+      gap: var(--s-4);
       min-width: min(100%, 320px);
       flex: 1;
     }
@@ -179,134 +147,140 @@
     .fractal-game__score-topline {
       display: flex;
       justify-content: space-between;
-      gap: 0.75rem;
+      gap: var(--s-12);
       align-items: baseline;
-      font-size: 0.9rem;
-      color: var(--muted);
+      font-size: var(--fs-sm);
+      color: var(--secondary);
     }
 
     .fractal-game__score-value {
-      color: var(--cyan);
-      font-weight: 700;
-      font-size: 1.05rem;
+      color: var(--accent-ink);
+      font-weight: var(--semibold);
+      font-size: var(--fs-base);
+      font-variant-numeric: tabular-nums;
       white-space: nowrap;
     }
 
     .fractal-game__bar {
       position: relative;
-      height: 13px;
-      border-radius: 999px;
+      height: var(--s-12);
+      border-radius: 9999px;
       overflow: hidden;
-      background: rgba(255, 255, 255, 0.08);
+      background: var(--surface-hover);
     }
 
     .fractal-game__bar-fill {
       height: 100%;
-      width: 0%;
+      width: 100%;
       border-radius: inherit;
-      background: linear-gradient(90deg, #ff4d4d 0%, #ffaa00 45%, #44ff88 100%);
-      box-shadow: 0 0 18px rgba(125, 249, 255, 0.18);
-      transition: width 180ms linear;
+      background: var(--accent-ink);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform var(--dur-fade) var(--ease);
     }
 
     .fractal-game__score-note {
-      min-height: 1.2rem;
-      color: var(--muted);
-      font-size: 0.9rem;
+      min-height: var(--lh-sm);
+      color: var(--secondary);
+      font-size: var(--fs-sm);
+      line-height: var(--lh-sm);
     }
 
     .fractal-game__controls {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: var(--s-12);
       align-items: center;
       justify-content: space-between;
-      padding: 0.85rem 0.95rem;
-      border-radius: 20px;
     }
 
     .fractal-game__button-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.7rem;
+      gap: var(--s-8);
     }
 
     .fractal-game__button {
       appearance: none;
       border: 0;
-      border-radius: 999px;
-      padding: 0.72rem 1rem;
-      color: #051019;
-      font-weight: 700;
+      border-radius: var(--radius);
+      padding: var(--s-8) var(--s-12);
+      color: var(--primary);
+      background: var(--surface-hover);
+      font: inherit;
+      font-size: var(--fs-base);
+      line-height: var(--lh-base);
+      font-weight: var(--semibold);
       cursor: pointer;
-      transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+      transition: background-color var(--dur-fade) var(--ease), transform var(--dur-fade) var(--ease), opacity var(--dur-fade) var(--ease);
     }
 
     .fractal-game__button:hover:not(:disabled) {
-      transform: translateY(-1px);
+      background: var(--tertiary);
+    }
+
+    .fractal-game__button:active:not(:disabled) {
+      transform: scale(0.98);
     }
 
     .fractal-game__button:disabled {
       cursor: not-allowed;
       opacity: 0.45;
-      box-shadow: none;
-    }
-
-    .fractal-game__button--hint {
-      background: linear-gradient(135deg, #ffd27a, #ffb347);
-    }
-
-    .fractal-game__button--reset {
-      background: linear-gradient(135deg, #8be9ff, #7df9ff);
     }
 
     .fractal-game__button--next {
-      background: linear-gradient(135deg, #62ff9c, #44ff88);
+      background: var(--accent-ink);
+      color: #FFFFFF;
+    }
+
+    .fractal-game__button--next:hover:not(:disabled) {
+      background: var(--primary);
     }
 
     .fractal-game__hint {
-      min-height: 1.4rem;
-      color: #c0c9ff;
-      font-size: 0.94rem;
-      line-height: 1.5;
+      min-height: var(--lh-sm);
+      color: var(--secondary);
+      font-size: var(--fs-sm);
+      line-height: var(--lh-sm);
     }
 
     .fractal-game__grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.2fr);
-      gap: 0.9rem;
+      gap: var(--s-16);
     }
 
     .fractal-game__panel {
       display: grid;
-      gap: 0.7rem;
-      padding: 0.85rem;
-      border-radius: 20px;
+      gap: var(--s-8);
+      align-content: start;
+      padding: var(--s-16);
+      border-radius: 16px;
       min-width: 0;
     }
 
-    .fractal-game__panel h3 {
+    .fractal-game .fractal-game__panel h3 {
       margin: 0;
-      color: #f4f7ff;
-      font-size: 0.98rem;
+      color: var(--primary);
+      font-size: var(--fs-sm);
+      line-height: var(--lh-sm);
+      font-weight: var(--semibold);
       letter-spacing: 0.01em;
     }
 
-    .fractal-game__panel p {
+    .fractal-game .fractal-game__panel p {
       margin: 0;
-      color: var(--muted);
-      font-size: 0.82rem;
-      line-height: 1.45;
+      color: var(--secondary);
+      font-size: var(--fs-xs);
+      line-height: var(--lh-xs);
     }
 
     .fractal-game__canvas-wrap {
       position: relative;
       width: 100%;
-      border-radius: 16px;
+      border-radius: var(--radius);
       overflow: hidden;
-      background: #02030a;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #181818;
       aspect-ratio: 1 / 1;
     }
 
@@ -327,36 +301,15 @@
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 14px;
-      height: 14px;
-      margin: -7px 0 0 -7px;
-      border: 2px solid rgba(255, 179, 71, 0.95);
+      width: var(--s-16);
+      height: var(--s-16);
+      margin: -8px 0 0 -8px;
+      border: 2px dashed #FFFFFF;
       border-radius: 50%;
-      box-shadow: 0 0 0 6px rgba(255, 179, 71, 0.12);
       pointer-events: none;
       opacity: 0;
       transform: scale(0.75);
-      transition: opacity 150ms ease, transform 150ms ease;
-    }
-
-    .fractal-game__marker--current {
-      width: 16px;
-      height: 16px;
-      margin: -8px 0 0 -8px;
-      border: 2px solid rgba(125, 249, 255, 1);
-      box-shadow: 0 0 0 6px rgba(125, 249, 255, 0.16);
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .fractal-game__marker--current::before,
-    .fractal-game__marker--current::after {
-      background: rgba(125, 249, 255, 1);
-    }
-
-    .fractal-game__marker--target {
-      border-color: rgba(255, 179, 71, 0.95);
-      box-shadow: 0 0 0 6px rgba(255, 179, 71, 0.12);
+      transition: opacity var(--dur-fade) var(--ease), transform var(--dur-fade) var(--ease);
     }
 
     .fractal-game__marker.is-visible {
@@ -364,63 +317,45 @@
       transform: scale(1);
     }
 
-    .fractal-game__marker::before,
-    .fractal-game__marker::after {
+    .fractal-game__marker--current {
+      border-style: solid;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .fractal-game__marker--current::before,
+    .fractal-game__marker--current::after {
       content: "";
       position: absolute;
       left: 50%;
       top: 50%;
-      background: rgba(255, 179, 71, 0.95);
+      background: #FFFFFF;
       transform: translate(-50%, -50%);
     }
 
-    .fractal-game__marker::before {
-      width: 18px;
+    .fractal-game__marker--current::before {
+      width: 20px;
       height: 2px;
     }
 
-    .fractal-game__marker::after {
+    .fractal-game__marker--current::after {
       width: 2px;
-      height: 18px;
-    }
-
-    .fractal-game__caption {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.75rem;
-      align-items: center;
-      color: var(--muted);
-      font-size: 0.82rem;
-      line-height: 1.45;
-    }
-
-    .fractal-game__caption strong {
-      color: var(--orange);
-      font-weight: 700;
+      height: 20px;
     }
 
     .fractal-game__complete {
-      min-height: 1.4rem;
-      color: var(--cyan);
-      font-size: 0.94rem;
-      font-weight: 700;
-    }
-
-    @keyframes fractal-game-fade-in {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      min-height: var(--lh-sm);
+      color: var(--accent-ink);
+      font-size: var(--fs-sm);
+      line-height: var(--lh-sm);
+      font-weight: var(--semibold);
     }
 
     @media (max-width: 1024px) {
       .fractal-game {
-        border-radius: 0;
-        margin: 1.25rem 0;
+        width: auto;
+        max-width: none;
+        margin: var(--s-24) 0;
       }
 
       .fractal-game__shell {
@@ -442,7 +377,7 @@
   </style>
 
   <div class="fractal-game__unsupported" data-mobile-warning>
-    This interactive Fractal Pattern Hunter is currently supported on laptops only. Please open this page on a larger screen.
+    Fractal Pattern Hunter needs a larger screen. Open this page on a laptop or desktop.
   </div>
 
   <div class="fractal-game__shell">
@@ -485,7 +420,7 @@
 
     <div class="fractal-game__grid">
       <article class="fractal-game__panel">
-        <h3>Target Pattern</h3>
+        <h3>Target pattern</h3>
         <p>Match your Julia set to this pattern.</p>
         <div class="fractal-game__canvas-wrap">
           <canvas data-target-canvas width="240" height="240"></canvas>
@@ -493,15 +428,15 @@
       </article>
 
       <article class="fractal-game__panel">
-        <h3>Your Julia Set</h3>
-        <p>This is the Julia set you are producing! <em>c</em>.</p>
+        <h3>Your Julia set</h3>
+        <p>The Julia set for your current value of c.</p>
         <div class="fractal-game__canvas-wrap">
           <canvas data-julia-canvas width="240" height="240"></canvas>
         </div>
       </article>
 
       <article class="fractal-game__panel">
-        <h3>Complex Plane</h3>
+        <h3>Complex plane</h3>
         <p>Drag the point to choose the parameter for the Julia set.</p>
         <div class="fractal-game__canvas-wrap fractal-game__canvas-wrap--wide">
           <canvas data-plane-canvas width="320" height="240"></canvas>
@@ -807,32 +742,32 @@
 
       function updateLevelMeta() {
         const level = currentTarget;
-        const label = `Level ${currentLevel + 1} / ${TARGETS.length}`;
+        const label = `Level ${currentLevel + 1} of ${TARGETS.length}`;
         levelName.textContent = `${label}  ${level.emoji} ${level.name}`;
         levelDifficulty.textContent = `[${level.difficulty}]`;
       }
 
       function updateScore(score) {
         scoreText.textContent = `${score.toFixed(1)}%`;
-        scoreFill.style.width = `${score}%`;
+        scoreFill.style.transform = `scaleX(${score / 100})`;
         scoreBar.setAttribute("aria-valuenow", `${score.toFixed(1)}`);
 
         let message = "";
         if (score >= currentTarget.threshold) {
           message = 'Pattern matched. Press "Next level" to continue.';
-          statusText.style.color = "var(--green)";
+          statusText.style.color = "var(--accent-ink)";
           nextBtn.disabled = false;
         } else if (score >= 60) {
           message = "Getting warmer. Keep tuning the parameter.";
-          statusText.style.color = "var(--amber)";
+          statusText.style.color = "var(--primary)";
           nextBtn.disabled = true;
         } else if (score >= 35) {
           message = "You are on the right track.";
-          statusText.style.color = "#ffb27a";
+          statusText.style.color = "var(--secondary)";
           nextBtn.disabled = true;
         } else {
           message = "";
-          statusText.style.color = "var(--muted)";
+          statusText.style.color = "var(--secondary)";
           nextBtn.disabled = true;
         }
 
@@ -875,7 +810,7 @@
           levelName.textContent = "All levels cleared";
           levelDifficulty.textContent = "You are a Fractal Master.";
           scoreText.textContent = "100.0%";
-          scoreFill.style.width = "100%";
+          scoreFill.style.transform = "scaleX(1)";
           scoreBar.setAttribute("aria-valuenow", "100");
           statusText.textContent = "";
           hintText.textContent = "";

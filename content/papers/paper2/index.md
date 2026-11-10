@@ -8,7 +8,6 @@ description: ""
 summary: "This dissertation conjectured and proved an infinite branched cyclic quivers family of 3d mirror pairs." 
 status: "Dissertation"
 cover:
-    #    image: "paper2.png"
     alt: "branched cyclic quivers"
     relative: true
 #editPost:
@@ -31,13 +30,6 @@ cover:
 
 This work conjectured and proven a novel infinite family of 3d mirror pairs, with distinct branched cyclic structure. This discovery expands the known examples of mirror symmetric quiver gauge theories and offers new insights into the underlying structure and dualities of these theories.The dissertation further investigates the relationship between 3d N=4 supersymmetric field theories and interconnected areas of mathematics and physics, including algebraic varieties and brane dynamics.
 
----
-
-##### The 3d mirror pairs Theory Q and Theory P
-
-![](paper2.png)
-
----
 <!-- 
 ##### Citation
 
